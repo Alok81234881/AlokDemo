@@ -14,23 +14,40 @@
 			remoteGlobalIDString = 198AD3242E53645D000BF152;
 			remoteInfo = AlokDemo;
 		};
-		198AD3492E53645E000BF152 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 198AD31D2E53645D000BF152 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 198AD3242E53645D000BF152;
-			remoteInfo = AlokDemo;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		198AD3252E53645D000BF152 /* AlokDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlokDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		198AD33E2E53645E000BF152 /* AlokDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlokDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		198AD3482E53645E000BF152 /* AlokDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlokDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		198AD3502E53645E000BF152 /* Exceptions for "AlokDemo" folder in "AlokDemo" target */ = {
+		198AD3662E5364BB000BF152 /* Exceptions for "AlokDemo" folder in "AlokDemoTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Coordinator/AppCoordinator.swift,
+				Models/Holding.swift,
+				Models/HoldingCellViewModel.swift,
+				Models/HoldingsResponse.swift,
+				Models/PortfolioSummary.swift,
+				Models/PortfolioSummaryDisplayModel.swift,
+				Models/ProfitLossFooterViewModel.swift,
+				Networking/APIClient.swift,
+				Networking/Endpoint.swift,
+				Networking/NetworkError.swift,
+				Persistence/CacheStore.swift,
+				Persistence/OfflineHoldingsStore.swift,
+				Resources/README.md,
+				Utility/Utility.swift,
+				ViewModels/HoldingsListViewModel.swift,
+				Views/HoldingCell.swift,
+				Views/HoldingsViewController.swift,
+				Views/PortfolioSummaryFooterView.swift,
+				Views/ProfitLossFooterView.swift,
+			);
+			target = 198AD33D2E53645E000BF152 /* AlokDemoTests */;
+		};
+		198AD3992E5366E1000BF152 /* Exceptions for "AlokDemo" folder in "AlokDemo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -43,7 +60,8 @@
 		198AD3272E53645D000BF152 /* AlokDemo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				198AD3502E53645E000BF152 /* Exceptions for "AlokDemo" folder in "AlokDemo" target */,
+				198AD3992E5366E1000BF152 /* Exceptions for "AlokDemo" folder in "AlokDemo" target */,
+				198AD3662E5364BB000BF152 /* Exceptions for "AlokDemo" folder in "AlokDemoTests" target */,
 			);
 			path = AlokDemo;
 			sourceTree = "<group>";
@@ -51,11 +69,6 @@
 		198AD3412E53645E000BF152 /* AlokDemoTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = AlokDemoTests;
-			sourceTree = "<group>";
-		};
-		198AD34B2E53645E000BF152 /* AlokDemoUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = AlokDemoUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,13 +88,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		198AD3452E53645E000BF152 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -90,7 +96,6 @@
 			children = (
 				198AD3272E53645D000BF152 /* AlokDemo */,
 				198AD3412E53645E000BF152 /* AlokDemoTests */,
-				198AD34B2E53645E000BF152 /* AlokDemoUITests */,
 				198AD3262E53645D000BF152 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,7 +105,6 @@
 			children = (
 				198AD3252E53645D000BF152 /* AlokDemo.app */,
 				198AD33E2E53645E000BF152 /* AlokDemoTests.xctest */,
-				198AD3482E53645E000BF152 /* AlokDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,29 +157,6 @@
 			productReference = 198AD33E2E53645E000BF152 /* AlokDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		198AD3472E53645E000BF152 /* AlokDemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 198AD3592E53645E000BF152 /* Build configuration list for PBXNativeTarget "AlokDemoUITests" */;
-			buildPhases = (
-				198AD3442E53645E000BF152 /* Sources */,
-				198AD3452E53645E000BF152 /* Frameworks */,
-				198AD3462E53645E000BF152 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				198AD34A2E53645E000BF152 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				198AD34B2E53645E000BF152 /* AlokDemoUITests */,
-			);
-			name = AlokDemoUITests;
-			packageProductDependencies = (
-			);
-			productName = AlokDemoUITests;
-			productReference = 198AD3482E53645E000BF152 /* AlokDemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -190,10 +171,6 @@
 						CreatedOnToolsVersion = 26.0;
 					};
 					198AD33D2E53645E000BF152 = {
-						CreatedOnToolsVersion = 26.0;
-						TestTargetID = 198AD3242E53645D000BF152;
-					};
-					198AD3472E53645E000BF152 = {
 						CreatedOnToolsVersion = 26.0;
 						TestTargetID = 198AD3242E53645D000BF152;
 					};
@@ -215,7 +192,6 @@
 			targets = (
 				198AD3242E53645D000BF152 /* AlokDemo */,
 				198AD33D2E53645E000BF152 /* AlokDemoTests */,
-				198AD3472E53645E000BF152 /* AlokDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -229,13 +205,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		198AD33C2E53645E000BF152 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		198AD3462E53645E000BF152 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -259,13 +228,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		198AD3442E53645E000BF152 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -273,11 +235,6 @@
 			isa = PBXTargetDependency;
 			target = 198AD3242E53645D000BF152 /* AlokDemo */;
 			targetProxy = 198AD33F2E53645E000BF152 /* PBXContainerItemProxy */;
-		};
-		198AD34A2E53645E000BF152 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 198AD3242E53645D000BF152 /* AlokDemo */;
-			targetProxy = 198AD3492E53645E000BF152 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -293,7 +250,7 @@
 				INFOPLIST_FILE = AlokDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -324,7 +281,7 @@
 				INFOPLIST_FILE = AlokDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -505,44 +462,6 @@
 			};
 			name = Release;
 		};
-		198AD35A2E53645E000BF152 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alok.AlokDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = AlokDemo;
-			};
-			name = Debug;
-		};
-		198AD35B2E53645E000BF152 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alok.AlokDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = AlokDemo;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -569,15 +488,6 @@
 			buildConfigurations = (
 				198AD3572E53645E000BF152 /* Debug */,
 				198AD3582E53645E000BF152 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		198AD3592E53645E000BF152 /* Build configuration list for PBXNativeTarget "AlokDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				198AD35A2E53645E000BF152 /* Debug */,
-				198AD35B2E53645E000BF152 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
