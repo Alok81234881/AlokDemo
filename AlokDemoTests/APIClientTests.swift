@@ -10,7 +10,6 @@ import XCTest
 
 final class APIClientTests: XCTestCase {
 
-    // Custom URLProtocol to mock responses
     class MockURLProtocol: URLProtocol {
         static var response: (data: Data?, response: URLResponse?, error: Error?)?
 

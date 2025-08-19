@@ -11,18 +11,18 @@ import XCTest
 final class UtilityTests: XCTestCase {
 
     func testCurrencyFormatterMoney() {
-        // Positive value
+        // For Positive
         let value1 = 1234.56
         let formatted1 = CurrencyFormatter.money(value1)
         XCTAssertTrue(formatted1.contains("₹") || formatted1.contains("INR"), "Should include currency symbol")
         XCTAssertTrue(formatted1.contains("1,234.56") || formatted1.contains("1234.56"))
 
-        // Zero value
+        // For Zero value
         let value2 = 0.0
         let formatted2 = CurrencyFormatter.money(value2)
         XCTAssertTrue(formatted2.contains("0") || formatted2.contains("₹"))
 
-        // Negative value
+        // For Negative value
         let value3 = -9876.54
         let formatted3 = CurrencyFormatter.money(value3)
         XCTAssertTrue(formatted3.contains("-") || formatted3.contains("₹"))

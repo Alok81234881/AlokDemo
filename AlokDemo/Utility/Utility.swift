@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Currency Formatter
 enum CurrencyFormatter {
     static func money(_ value: Double) -> String {
         let f = NumberFormatter()
@@ -17,7 +18,7 @@ enum CurrencyFormatter {
     }
 }
 
-// MARK: - Helpers
+// MARK: - Rupee Convertor
 extension Double {
     func asRupee(sign: Bool = false, showPercent: Bool = false, percent: Double? = nil) -> String {
         let formatter = NumberFormatter()

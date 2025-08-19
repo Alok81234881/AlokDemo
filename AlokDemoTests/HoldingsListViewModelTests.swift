@@ -10,7 +10,7 @@ import XCTest
 
 final class HoldingsListViewModelTests: XCTestCase {
 
-    // Mock API client
+    // Mocking API client
     class MockAPIClient: APIClientProtocol {
         var result: Result<HoldingsResponse, Error>?
         func fetchHoldings(completion: @escaping (Result<HoldingsResponse, Error>) -> Void) {
@@ -20,7 +20,7 @@ final class HoldingsListViewModelTests: XCTestCase {
         }
     }
 
-    // Mock Offline store
+    // Mocking Offline store
     class MockOfflineStore: OfflineHoldingsStoreProtocol {
         var savedResponse: HoldingsResponse?
         var cachedResponse: HoldingsResponse?
@@ -34,7 +34,6 @@ final class HoldingsListViewModelTests: XCTestCase {
         }
     }
 
-    // Mock delegate to capture state updates
     class MockDelegate: HoldingsListViewModelDelegate {
         var states: [State] = []
 
@@ -44,7 +43,7 @@ final class HoldingsListViewModelTests: XCTestCase {
     }
 
     func testLoadSuccess() {
-        // Given
+        
         let mockAPI = MockAPIClient()
         let mockOffline = MockOfflineStore()
         let delegate = MockDelegate()
@@ -64,14 +63,14 @@ final class HoldingsListViewModelTests: XCTestCase {
 
         let expectation = self.expectation(description: "Load holdings success")
 
-        // When
+        
         viewModel.load {
             expectation.fulfill()
         }
 
         waitForExpectations(timeout: 1)
 
-        // Then
+       
         XCTAssertEqual(viewModel.holdings, [holding])
         XCTAssertEqual(viewModel.state, .loaded)
         XCTAssertEqual(delegate.states.first, .loading)
@@ -80,7 +79,7 @@ final class HoldingsListViewModelTests: XCTestCase {
     }
 
     func testLoadFailureWithOfflineCache() {
-        // Given
+        
         let mockAPI = MockAPIClient()
         let mockOffline = MockOfflineStore()
         let delegate = MockDelegate()
@@ -102,14 +101,14 @@ final class HoldingsListViewModelTests: XCTestCase {
 
         let expectation = self.expectation(description: "Load holdings with offline fallback")
 
-        // When
+        
         viewModel.load {
             expectation.fulfill()
         }
 
         waitForExpectations(timeout: 1)
 
-        // Then
+        
         XCTAssertEqual(viewModel.holdings, [cachedHolding])
         XCTAssertEqual(viewModel.state, .loaded)
         XCTAssertEqual(delegate.states.first, .loading)
@@ -117,7 +116,7 @@ final class HoldingsListViewModelTests: XCTestCase {
     }
 
     func testLoadFailureNoCache() {
-        // Given
+        
         let mockAPI = MockAPIClient()
         let mockOffline = MockOfflineStore()
         let delegate = MockDelegate()
@@ -131,19 +130,19 @@ final class HoldingsListViewModelTests: XCTestCase {
 
         let expectation = self.expectation(description: "Load holdings failure")
 
-        // When
+        
         viewModel.load {
             expectation.fulfill()
         }
 
         waitForExpectations(timeout: 1)
 
-        // Then
+        
         XCTAssertTrue(viewModel.holdings.isEmpty)
         if case let .error(message) = viewModel.state {
             XCTAssertEqual(message, error.localizedDescription)
         } else {
-            XCTFail("Expected state to be .error")
+            XCTFail("Expected state to be an error")
         }
         XCTAssertEqual(delegate.states.first, .loading)
         XCTAssertEqual(delegate.states.last, .error(error.localizedDescription))

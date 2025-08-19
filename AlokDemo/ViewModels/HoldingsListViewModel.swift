@@ -40,7 +40,7 @@ final class HoldingsListViewModel {
                     self.state = .loaded
                     try? self.offline.save(response)
                 case .failure(let error):
-                    // Attempt offline
+                    // For offline
                     if let cached = self.offline.load() {
                         self.holdings = cached.data.userHolding as [Holding]
                         self.summary = PortfolioSummary.compute(from: cached.data.userHolding as [Holding])
