@@ -31,6 +31,7 @@ final class HoldingsViewController: UIViewController, HoldingsListViewModelDeleg
 
         viewModel.load { [weak self] in
             self?.reloadUI()
+            self?.profitFooterView.isHidden = false
         }
     }
 
@@ -45,6 +46,10 @@ final class HoldingsViewController: UIViewController, HoldingsListViewModelDeleg
             profitFooterView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             profitFooterView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+        
+            profitFooterView.isHidden = true
+        
+        
     }
 
     private func setupTable() {

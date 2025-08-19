@@ -10,7 +10,7 @@ import UIKit
 final class ProfitLossFooterView: UIView {
     var onToggle: (() -> Void)?
     
-    // MARK: - UI
+    
     private let profitLossContainer = UIStackView()
     private let profitLossLabel = UILabel()
     private let profitLossAmountLabel = UILabel()
@@ -26,7 +26,6 @@ final class ProfitLossFooterView: UIView {
     
     private let divider = UIView()
     
-    // MARK: - State
     private var expanded = false
     private var currentSummary: PortfolioSummary?
     
@@ -37,16 +36,15 @@ final class ProfitLossFooterView: UIView {
     }
     required init?(coder: NSCoder) { fatalError() }
     
-    // MARK: - Setup
+    
     private func setup() {
         backgroundColor = .systemBackground
         layer.cornerRadius = 12
         layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
-        // --- Profit & Loss row (always visible) ---
         profitLossContainer.axis = .horizontal
         profitLossContainer.alignment = .center
-        profitLossContainer.distribution = .equalSpacing
+        profitLossContainer.distribution = .fillProportionally
         
         profitLossLabel.text = "Profit & Loss*"
         profitLossLabel.font = .systemFont(ofSize: 16)
@@ -55,13 +53,14 @@ final class ProfitLossFooterView: UIView {
         profitLossAmountLabel.font = .systemFont(ofSize: 16, weight: .medium)
         profitLossAmountLabel.textAlignment = .right
         
-        expandButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        expandButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
         expandButton.tintColor = .label
         expandButton.addTarget(self, action: #selector(toggleTapped), for: .touchUpInside)
         
         profitLossContainer.addArrangedSubview(profitLossLabel)
-        profitLossContainer.addArrangedSubview(profitLossAmountLabel)
         profitLossContainer.addArrangedSubview(expandButton)
+        profitLossContainer.addArrangedSubview(profitLossAmountLabel)
+        
         
         // --- Details stack (hidden until expanded) ---
         detailsStack.axis = .vertical

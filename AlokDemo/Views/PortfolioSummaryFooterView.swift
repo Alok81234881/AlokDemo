@@ -85,7 +85,7 @@ class PortfolioSummaryFooterView: UIView {
         profitAndLossLabel.text = "Profit & Loss*"
         profitAndLossLabel.font = .preferredFont(forTextStyle: .body)
         profitAndLossValue.font = .preferredFont(forTextStyle: .body)
-        expandIcon.image = UIImage(systemName: "chevron.down")
+        expandIcon.image = UIImage(systemName: "chevron.up")
         expandIcon.tintColor = .secondaryLabel
         expandIcon.contentMode = .scaleAspectFit
         expandIcon.widthAnchor.constraint(equalToConstant: 20).isActive = true
@@ -136,11 +136,11 @@ class PortfolioSummaryFooterView: UIView {
         if expanded {
             topRows?.isHidden = false
             sep.isHidden = false
-            expandIcon.image = UIImage(systemName: "chevron.up")
+            expandIcon.image = UIImage(systemName: "chevron.down")
         } else {
             topRows?.isHidden = true
             sep.isHidden = true
-            expandIcon.image = UIImage(systemName: "chevron.down")
+            expandIcon.image = UIImage(systemName: "chevron.up")
         }
         if animated {
             UIView.animate(withDuration: 0.25) {

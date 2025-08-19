@@ -12,7 +12,6 @@ final class HoldingCell: UITableViewCell {
 
     private let symbolLabel = UILabel()
     private let qtyLabel = UILabel()
-    private let avgLabel = UILabel()
     private let ltpLabel = UILabel()
     private let pnlLabel = UILabel()
     private let stack = UIStackView()
@@ -28,25 +27,21 @@ final class HoldingCell: UITableViewCell {
     private func setup() {
         symbolLabel.font = .preferredFont(forTextStyle: .headline)
         qtyLabel.font = .preferredFont(forTextStyle: .subheadline)
-        avgLabel.font = .preferredFont(forTextStyle: .subheadline)
         ltpLabel.font = .preferredFont(forTextStyle: .subheadline)
         pnlLabel.font = .preferredFont(forTextStyle: .subheadline)
 
-        let topRow = UIStackView(arrangedSubviews: [symbolLabel, UIView(), pnlLabel])
+        let topRow = UIStackView(arrangedSubviews: [symbolLabel, UIView(), ltpLabel])
         topRow.axis = .horizontal
 
-        let midRow = UIStackView(arrangedSubviews: [qtyLabel, UIView()])
-        midRow.axis = .horizontal
-
-        let bottomRow = UIStackView(arrangedSubviews: [avgLabel, ltpLabel])
+        let bottomRow = UIStackView(arrangedSubviews: [qtyLabel, pnlLabel])
         bottomRow.axis = .horizontal
         bottomRow.spacing = 12
 
         stack.axis = .vertical
-        stack.spacing = 6
+        stack.spacing = 15
         stack.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(stack)
-        [topRow, midRow, bottomRow].forEach { stack.addArrangedSubview($0) }
+        [topRow, bottomRow].forEach { stack.addArrangedSubview($0) }
 
         NSLayoutConstraint.activate([
             stack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
@@ -58,8 +53,20 @@ final class HoldingCell: UITableViewCell {
 
     func configure(with vm: HoldingCellViewModel) {
         symbolLabel.text = vm.symbol
-        qtyLabel.text = "Qty: " + vm.qtyText
-        avgLabel.text = vm.avgText
+        
+        let prefix = "NET QTY: "
+        let qty = vm.qtyText
+        let attributed = NSMutableAttributedString(string: prefix, attributes: [
+            .foregroundColor: UIColor.lightGray,
+            .font: UIFont.preferredFont(forTextStyle: .subheadline)
+        ])
+        let qtyAttr = NSAttributedString(string: qty, attributes: [
+            .foregroundColor: UIColor.black,
+            .font: UIFont.systemFont(ofSize: UIFont.preferredFont(forTextStyle: .caption1).pointSize, weight: .semibold)
+        ])
+        attributed.append(qtyAttr)
+        qtyLabel.attributedText = attributed
+        
         ltpLabel.text = vm.ltpText
         pnlLabel.text = vm.pnlText
         pnlLabel.textColor = (vm.pnlText.contains("-")) ? .systemRed : .systemGreen
@@ -68,7 +75,7 @@ final class HoldingCell: UITableViewCell {
 
     private func accessibilize() {
         isAccessibilityElement = true
-        accessibilityLabel = [symbolLabel.text, qtyLabel.text, avgLabel.text, ltpLabel.text, pnlLabel.text]
+        accessibilityLabel = [symbolLabel.text, qtyLabel.text, ltpLabel.text, pnlLabel.text]
             .compactlyJoined()
     }
 }
